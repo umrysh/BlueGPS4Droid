@@ -50,8 +50,6 @@
     <string name="pref_trackfile_directory_summary">Indicar un directorio para los ficheros de trazas</string>
     <string name="pref_bluetooth_device_title">Selección del GPS</string>
     <string name="pref_bluetooth_device_summary">"Dispositivo actual : %s"</string>    
-    <string name="pref_about_title">Acerca de</string>
-    <string name="pref_about_summary"></string>    
 
     <string name="pref_sirf_gps_title">GPS SiRF</string>
     <string name="pref_sirf_gps_summary_off">"No usar las opciones SiRF"</string>
@@ -112,18 +110,4 @@
     </plurals>
     <string name="service_closed_because_connection_problem_notification_title">BlueGps parado</string>
     <string name="service_closed_because_connection_problem_notification">"Motivo : %s"</string>
-
-    <string name="about_title">Acerca de</string>
-    <string name="about_version">Versión BluetoothGPS4Droid</string>
-    <string name="about_copyright_1">Copyright (C) 2010, 2011, 2012 Herbert von Broeuschmeul</string>
-    <string name="about_copyright_2">Copyright (C) 2010, 2011, 2012 BluetoothGPS4Droid Project</string>
-    <string name="about_app_desc">Bluetooth GPS para Android es una aplicación 
-    	que permite utilizar un GPS bluetooth externo con un terminal Android.
-    </string>
-    <string name="about_license">Es Software Libre 
-    	distribuido gratuítamente bajo los términos de <a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html"><b>la licencia GNU/GPL</b></a>.
-    </string>
-    <string name="about_sources">El código fuente se puede descargar libremente del repositorio Git en la página del proyecto: 
-		http://sourceforge.net/p/bluegps4droid
-    </string>
 </resources>

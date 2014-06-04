@@ -3,3 +3,6 @@
 #*.dex
 #*.apk
 #resources.ap_
+build.xml
+local.properties
+proguard-project.txt

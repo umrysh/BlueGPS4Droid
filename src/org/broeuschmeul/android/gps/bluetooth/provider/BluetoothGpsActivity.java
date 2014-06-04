@@ -65,14 +65,6 @@ public class BluetoothGpsActivity extends PreferenceActivity implements OnPrefer
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPref.registerOnSharedPreferenceChangeListener(this);
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        Preference pref = findPreference(BluetoothGpsProviderService.PREF_ABOUT);
-        pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {		
-			@Override
-			public boolean onPreferenceClick(Preference preference) {
-				BluetoothGpsActivity.this.displayAboutDialog();
-				return true;
-			}
-		});
    }
 
     /* (non-Javadoc)
@@ -144,25 +136,6 @@ public class BluetoothGpsActivity extends PreferenceActivity implements OnPrefer
 	protected void onDestroy() {
 		super.onDestroy();
 		sharedPref.unregisterOnSharedPreferenceChangeListener(this);
-	}
-	
-	private void displayAboutDialog(){
-        View messageView = getLayoutInflater().inflate(R.layout.about, null, false);
-        // we need this to enable html links
-        TextView textView = (TextView) messageView.findViewById(R.id.about_license);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
-        // When linking text, force to always use default color. This works
-        // around a pressed color state bug.
-        int defaultColor = textView.getTextColors().getDefaultColor();
-        textView.setTextColor(defaultColor);
-        textView = (TextView) messageView.findViewById(R.id.about_sources);
-        textView.setTextColor(defaultColor);
-       
-		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(R.string.about_title);
-		builder.setIcon(R.drawable.gplv3_icon);
-        builder.setView(messageView);
-		builder.show();
 	}
 
 	@Override
