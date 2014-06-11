@@ -40,6 +40,10 @@ import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.preference.PreferenceScreen;
+import android.preference.EditTextPreference;
+import android.text.InputType;
+import android.widget.EditText;
 
 /**
  * A PreferenceActivity Class used to configure, start and stop the NMEA tracker service.
@@ -79,10 +83,11 @@ public class BluetoothGpsActivity extends PreferenceActivity implements OnPrefer
 	private void updateDevicePreferenceSummary(){
         // update bluetooth device summary
 		String deviceName = "";
+        String value;
         ListPreference prefDevices = (ListPreference)findPreference(BluetoothGpsProviderService.PREF_BLUETOOTH_DEVICE);
         String deviceAddress = sharedPref.getString(BluetoothGpsProviderService.PREF_BLUETOOTH_DEVICE, null);
         if (BluetoothAdapter.checkBluetoothAddress(deviceAddress)){
-        	deviceName = bluetoothAdapter.getRemoteDevice(deviceAddress).getName();
+            deviceName = sharedPref.getString("DeviceName:"+bluetoothAdapter.getRemoteDevice(deviceAddress).getName(), bluetoothAdapter.getRemoteDevice(deviceAddress).getName());
         }
         prefDevices.setSummary(getString(R.string.pref_bluetooth_device_summary, deviceName));
     }   
@@ -98,6 +103,7 @@ public class BluetoothGpsActivity extends PreferenceActivity implements OnPrefer
         }
         String[] entryValues = new String[pairedDevices.size()];
         String[] entries = new String[pairedDevices.size()];
+        String[] originalEntries = new String[pairedDevices.size()];
         int i = 0;
     	    // Loop through paired devices
         for (BluetoothDevice device : pairedDevices) {
@@ -105,7 +111,13 @@ public class BluetoothGpsActivity extends PreferenceActivity implements OnPrefer
         	Log.v(LOG_TAG, "device: "+device.getName() + " -- " + device.getAddress());
         	entryValues[i] = device.getAddress();
             entries[i] = device.getName();
+            originalEntries[i] = device.getName();
             i++;
+        }
+        // Check for custom names for these devices
+        for (int count = 0; count < entries.length; count++) {
+            // If device has a custom name, replace it for the user
+            entries[count] = sharedPref.getString("DeviceName:"+entries[count], entries[count]);
         }
         prefDevices.setEntryValues(entryValues);
         prefDevices.setEntries(entries);
@@ -128,7 +140,26 @@ public class BluetoothGpsActivity extends PreferenceActivity implements OnPrefer
         	pref.setSummary(s);
         	Log.v(LOG_TAG, "loc. provider: "+s);
         	Log.v(LOG_TAG, "loc. provider: "+pref.getSummary());  
-    }
+        }
+        PreferenceScreen prefRenameDevices = (PreferenceScreen)findPreference(BluetoothGpsProviderService.PREF_RENAME_BLUETOOTH);
+        prefRenameDevices.removeAll();
+        EditTextPreference deviceEditText;
+        EditText innerEditText;
+        String value;
+        for (int count = 0; count < originalEntries.length; count++) {
+            deviceEditText = new EditTextPreference(this);
+            deviceEditText.setSummary(originalEntries[count]);
+            innerEditText = (EditText) deviceEditText.getEditText();
+            innerEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL | InputType.TYPE_TEXT_FLAG_AUTO_COMPLETE | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT);
+            deviceEditText.setKey("DeviceName:"+originalEntries[count]);
+            
+            // If device has a custom name, replace it for the user
+            value = sharedPref.getString("DeviceName:"+originalEntries[count], originalEntries[count]);
+            deviceEditText.setTitle(value);
+            deviceEditText.setDefaultValue(value);
+            
+            prefRenameDevices.addPreference(deviceEditText);
+        }
         this.onContentChanged();
     }
     

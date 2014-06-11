@@ -178,4 +178,9 @@
 			android:defaultValue="@string/defaultTrackFilePrefix"
 			android:summary="@string/pref_trackfile_prefix_summary" />
 	</PreferenceScreen>
+	<PreferenceScreen
+		android:summary="@string/pref_gps_rename_devices_summary"
+		android:title="@string/pref_gps_rename_devices_title"
+		android:key="@string/pref_bluetooth_rename_devices">
+	</PreferenceScreen>
 </PreferenceScreen>

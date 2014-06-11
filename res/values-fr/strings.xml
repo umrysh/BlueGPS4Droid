@@ -107,4 +107,7 @@
     </plurals>
     <string name="service_closed_because_connection_problem_notification_title">BlueGps arrêté</string>
     <string name="service_closed_because_connection_problem_notification">"Motif : %s"</string>
+
+    <string name="pref_gps_rename_devices_title">Renommer Appareils GPS</string>
+    <string name="pref_gps_rename_devices_summary">Personnaliser les noms des périphériques GPS</string>
 </resources>
