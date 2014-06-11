@@ -25,15 +25,9 @@
   <string name="pref_start_gps_summary_on">Bluetooth GPS включен</string>
   <string name="pref_start_gps_params_title">Настройки GPS(SiRF)</string>
   <string name="pref_gps_location_provider_title">Настройки источника данных о местоположении</string>
-  <string name="pref_gps_location_provider_summary">Bluetooth GPS заменит встроенный GPS</string>
-  <string name="pref_replace_std_gps_title">Заменить встроенный GPS</string>
-  <string name="pref_replace_std_gps_summary_on">Bluetooth GPS заменит встроенный GPS</string>
-  <string name="pref_replace_std_gps_summary_off">Bluetooth GPS будет использовать новый источник данных о местоположении</string>
   <string name="pref_force_enable_provider_title">Автоматическое включение источника данных о местоположении</string>
   <string name="pref_force_enable_provider_summary_on">Автоматическое включение источника данных о местоположении, даже если он был выключен</string>
   <string name="pref_force_enable_provider_summary_off">Автоматическое включение источника данных о местоположении, только если он не существовал ранее</string>
-  <string name="pref_mock_gps_name_title">Имя "Mock" источника данных о местоположении</string>
-  <string name="pref_mock_gps_name_summary">Имя Bluetooth GPS: %s</string>
   <string name="pref_connection_retries_title">Количество попыток соединения</string>
   <string name="pref_connection_retries_summary">Количество попыток до выхода: %s</string>
   <string name="pref_recording_title">Включить/Выключить журнал NMEA</string>

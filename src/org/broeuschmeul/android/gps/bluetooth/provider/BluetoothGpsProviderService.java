@@ -63,9 +63,7 @@ public class BluetoothGpsProviderService extends Service implements NmeaListener
 	public static final String ACTION_CONFIGURE_SIRF_GPS = "org.broeuschmeul.android.gps.bluetooth.provider.nmea.intent.action.CONFIGURE_SIRF_GPS";
 	public static final String PREF_START_GPS_PROVIDER = "startGps";
 	public static final String PREF_GPS_LOCATION_PROVIDER = "gpsLocationProviderKey";
-	public static final String PREF_REPLACE_STD_GPS = "replaceStdtGps";
 	public static final String PREF_FORCE_ENABLE_PROVIDER = "forceEnableProvider";
-	public static final String PREF_MOCK_GPS_NAME = "mockGpsName";
 	public static final String PREF_CONNECTION_RETRIES = "connectionRetries";
 	public static final String PREF_TRACK_RECORDING = "trackRecording";
 	public static final String PREF_TRACK_FILE_DIR = "trackFileDirectory";
@@ -115,10 +113,7 @@ public class BluetoothGpsProviderService extends Service implements NmeaListener
 		if (ACTION_START_GPS_PROVIDER.equals(intent.getAction())){
 			if (gpsManager == null){
 				if (BluetoothAdapter.checkBluetoothAddress(deviceAddress)){
-					String mockProvider = LocationManager.GPS_PROVIDER;
-					if (! sharedPreferences.getBoolean(PREF_REPLACE_STD_GPS, true)){
-						mockProvider = sharedPreferences.getString(PREF_MOCK_GPS_NAME, getString(R.string.defaultMockGpsName));
-					}
+					String mockProvider = getString(R.string.defaultMockGpsName);
 					gpsManager = new BlueetoothGpsManager(this, deviceAddress, maxConRetries);
 					boolean enabled = gpsManager.enable();
 //					Bundle extras = intent.getExtras();
