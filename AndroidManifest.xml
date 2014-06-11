@@ -19,7 +19,7 @@
     along with BluetoothGPS4Droid. If not, see : http://www.gnu.org/licenses/.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="org.broeuschmeul.android.gps.bluetooth.provider"
+      package="org.broeuschmeul.umrysh.android.gps.bluetooth.provider"
       android:versionCode="125"
       android:versionName="@string/versionName">
 
@@ -54,19 +54,19 @@
             android:enabled="true" 
             android:exported="true" >
             <intent-filter>
-                <action android:name="org.broeuschmeul.android.gps.bluetooth.tracker.nmea.intent.action.START_TRACK_RECORDING">
+                <action android:name="org.broeuschmeul.umrysh.android.gps.bluetooth.tracker.nmea.intent.action.START_TRACK_RECORDING">
                     <category android:name="android.intent.category.DEFAULT" />
                 </action>
-                <action android:name="org.broeuschmeul.android.gps.bluetooth.tracker.nmea.intent.action.STOP_TRACK_RECORDING">
+                <action android:name="org.broeuschmeul.umrysh.android.gps.bluetooth.tracker.nmea.intent.action.STOP_TRACK_RECORDING">
                     <category android:name="android.intent.category.DEFAULT" />
                 </action>
-                <action android:name="org.broeuschmeul.android.gps.bluetooth.provider.nmea.intent.action.START_GPS_PROVIDER">
+                <action android:name="org.broeuschmeul.umrysh.android.gps.bluetooth.provider.nmea.intent.action.START_GPS_PROVIDER">
                     <category android:name="android.intent.category.DEFAULT" />
                 </action>
-                <action android:name="org.broeuschmeul.android.gps.bluetooth.provider.nmea.intent.action.STOP_GPS_PROVIDER">
+                <action android:name="org.broeuschmeul.umrysh.android.gps.bluetooth.provider.nmea.intent.action.STOP_GPS_PROVIDER">
                     <category android:name="android.intent.category.DEFAULT" />
                 </action>
-                <action android:name="org.broeuschmeul.android.gps.bluetooth.provider.nmea.intent.action.CONFIGURE_SIRF_GPS">
+                <action android:name="org.broeuschmeul.umrysh.android.gps.bluetooth.provider.nmea.intent.action.CONFIGURE_SIRF_GPS">
                     <category android:name="android.intent.category.DEFAULT" />
                 </action>
             </intent-filter>            

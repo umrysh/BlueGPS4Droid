@@ -21,7 +21,7 @@
 /**
  * 
  */
-package org.broeuschmeul.android.gps.bluetooth.provider;
+package org.broeuschmeul.umrysh.android.gps.bluetooth.provider;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -56,11 +56,11 @@ import android.widget.Toast;
  */
 public class BluetoothGpsProviderService extends Service implements NmeaListener, LocationListener {
 
-	public static final String ACTION_START_TRACK_RECORDING = "org.broeuschmeul.android.gps.bluetooth.tracker.nmea.intent.action.START_TRACK_RECORDING";
-	public static final String ACTION_STOP_TRACK_RECORDING = "org.broeuschmeul.android.gps.bluetooth.tracker.nmea.intent.action.STOP_TRACK_RECORDING";
-	public static final String ACTION_START_GPS_PROVIDER = "org.broeuschmeul.android.gps.bluetooth.provider.nmea.intent.action.START_GPS_PROVIDER";
-	public static final String ACTION_STOP_GPS_PROVIDER = "org.broeuschmeul.android.gps.bluetooth.provider.nmea.intent.action.STOP_GPS_PROVIDER";
-	public static final String ACTION_CONFIGURE_SIRF_GPS = "org.broeuschmeul.android.gps.bluetooth.provider.nmea.intent.action.CONFIGURE_SIRF_GPS";
+	public static final String ACTION_START_TRACK_RECORDING = "org.broeuschmeul.umrysh.android.gps.bluetooth.tracker.nmea.intent.action.START_TRACK_RECORDING";
+	public static final String ACTION_STOP_TRACK_RECORDING = "org.broeuschmeul.umrysh.android.gps.bluetooth.tracker.nmea.intent.action.STOP_TRACK_RECORDING";
+	public static final String ACTION_START_GPS_PROVIDER = "org.broeuschmeul.umrysh.android.gps.bluetooth.provider.nmea.intent.action.START_GPS_PROVIDER";
+	public static final String ACTION_STOP_GPS_PROVIDER = "org.broeuschmeul.umrysh.android.gps.bluetooth.provider.nmea.intent.action.STOP_GPS_PROVIDER";
+	public static final String ACTION_CONFIGURE_SIRF_GPS = "org.broeuschmeul.umrysh.android.gps.bluetooth.provider.nmea.intent.action.CONFIGURE_SIRF_GPS";
 	public static final String PREF_START_GPS_PROVIDER = "startGps";
 	public static final String PREF_GPS_LOCATION_PROVIDER = "gpsLocationProviderKey";
 	public static final String PREF_FORCE_ENABLE_PROVIDER = "forceEnableProvider";

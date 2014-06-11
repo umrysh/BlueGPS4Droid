@@ -18,7 +18,7 @@
  *  along with BluetoothGPS4Droid. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.broeuschmeul.android.gps.bluetooth.provider;
+package org.broeuschmeul.umrysh.android.gps.bluetooth.provider;
 
 import java.util.HashSet;
 import java.util.Set;

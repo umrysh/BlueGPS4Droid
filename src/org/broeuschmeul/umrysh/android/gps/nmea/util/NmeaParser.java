@@ -18,7 +18,7 @@
  *  along with BluetoothGPS4Droid. If not, see <http://www.gnu.org/licenses/>.
  */
 
-package org.broeuschmeul.android.gps.nmea.util;
+package org.broeuschmeul.umrysh.android.gps.nmea.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
