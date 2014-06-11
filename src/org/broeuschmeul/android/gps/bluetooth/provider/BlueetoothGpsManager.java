@@ -70,7 +70,7 @@ public class BlueetoothGpsManager {
 	private static final String LOG_TAG = "BlueGPS";
 
 	/**
-	 * A utility class used to manage the communication with the bluetooth GPS whn the connection has been established.
+	 * A utility class used to manage the communication with the bluetooth GPS when the connection has been established.
 	 * It is used to read NMEA data from the GPS or to send SIRF III binary commands or SIRF III NMEA commands to the GPS.
 	 * You should run the main read loop in one thread and send the commands in a separate one.   
 	 * 
@@ -192,7 +192,7 @@ public class BlueetoothGpsManager {
 		public void close(){
 			ready = false;
 			try {
-	        	Log.d(LOG_TAG, "closing Bluetooth GPS output sream");
+	        	Log.d(LOG_TAG, "closing Bluetooth GPS output stream");
 				in.close();
 			} catch (IOException e) {
 				Log.e(LOG_TAG, "error while closing GPS NMEA output stream", e);
@@ -520,7 +520,6 @@ public class BlueetoothGpsManager {
 	 * In fact, it delegates to the NMEA parser. 
 	 * 
 	 * @see NmeaParser#enableMockLocationProvider(java.lang.String)
-
 	 * @param gpsName	the name of the Location Provider to use for the bluetooth GPS
 	 * @param force		true if we want to force auto-activation of the mock location provider (and bypass user preference).
 	 */
@@ -536,7 +535,6 @@ public class BlueetoothGpsManager {
 	 * In fact, it delegates to the NMEA parser. 
 	 * 
 	 * @see NmeaParser#enableMockLocationProvider(java.lang.String)
-
 	 * @param gpsName	the name of the Location Provider to use for the bluetooth GPS
 	 */
 	public void enableMockLocationProvider(String gpsName){
