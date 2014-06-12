@@ -22,7 +22,7 @@
 	Author: Colegota
 -->
 <resources>
-    <string name="app_name">Golden Retriever Bluetooth GPS</string>
+    <string name="app_name">Bluetooth GPS</string>
     
     <string name="pref_start_gps_title">Arrancar/Parar el GPS</string>
     <string name="pref_start_gps_summary_off">El GPS Bluetooth está parado</string>

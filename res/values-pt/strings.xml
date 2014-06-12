@@ -22,7 +22,7 @@
 	Authors: rsantospereira (XDA: rikpereira) and meiji (XDA: meiji.emperor)
 -->
 <resources>
-     <string name="app_name">Golden Retriever Bluetooth GPS</string>
+     <string name="app_name">Bluetooth GPS</string>
      
     <string name="pref_start_gps_title">Iniciar/Parar GPS</string>
     <string name="pref_start_gps_summary_off">Bluetooth GPS está desativado</string>

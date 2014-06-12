@@ -74,7 +74,7 @@ public class BluetoothGpsProviderService extends Service implements NmeaListener
 	/**
 	 * Tag used for log messages
 	 */
-	private static final String LOG_TAG = "BlueGPS";
+	private static final String LOG_TAG = "BluetoothGPS";
 
 	public static final String PREF_SIRF_GPS = "sirfGps";
 	public static final String PREF_SIRF_ENABLE_GGA = "enableGGA";
