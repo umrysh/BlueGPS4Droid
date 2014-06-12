@@ -137,7 +137,11 @@ public class BluetoothGpsProviderService extends Service implements NmeaListener
 						stopSelf();
 					}
 				} else {
-					stopSelf();
+					toast.setText(this.getString(R.string.select_a_gps_device));
+					toast.show();
+					Intent myIntent = new Intent(this, BluetoothGpsActivity.class);
+					myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					startActivity(myIntent);
 				}
 			} else {
 				toast.setText(this.getString(R.string.msg_gps_provider_already_started));

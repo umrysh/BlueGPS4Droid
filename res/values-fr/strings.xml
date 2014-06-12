@@ -104,4 +104,5 @@
 
     <string name="pref_gps_rename_devices_title">Renommer Appareils GPS</string>
     <string name="pref_gps_rename_devices_summary">Personnaliser les noms des périphériques GPS</string>
+    <string name="select_a_gps_device">Sélectionnez un appareil GPS à utiliser</string>
 </resources>
