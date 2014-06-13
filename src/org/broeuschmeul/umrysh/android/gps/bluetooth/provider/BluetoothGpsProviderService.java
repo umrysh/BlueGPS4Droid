@@ -134,6 +134,17 @@ public class BluetoothGpsProviderService extends Service implements NmeaListener
 						toast.setText(this.getString(R.string.msg_gps_provider_started));
 						toast.show();	
 					} else {
+						if (gpsManager.getDisableReason() != 0){
+							if(gpsManager.getDisableReason()==2131034225){
+								Intent myIntent = new Intent(android.provider.Settings.ACTION_SETTINGS);
+								myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+								startActivity(myIntent);
+							}else if(gpsManager.getDisableReason()==2131034226){
+								Intent myIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
+								myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+								startActivity(myIntent);
+							}
+						}
 						stopSelf();
 					}
 				} else {
@@ -394,8 +405,7 @@ public class BluetoothGpsProviderService extends Service implements NmeaListener
 		gpsManager  = null;
 		if (manager != null){
 			if (manager.getDisableReason() != 0){
-				toast.setText(getString(R.string.msg_gps_provider_stopped_by_problem, getString(manager.getDisableReason())));
-				toast.show();
+				Toast.makeText(this, getString(R.string.msg_gps_provider_stopped_by_problem, getString(manager.getDisableReason())), Toast.LENGTH_LONG).show();
 			} else {
 				toast.setText(R.string.msg_gps_provider_stopped);
 				toast.show();
