@@ -43,7 +43,7 @@
     <string name="pref_sirf_enable_nmea_key">enableNMEA</string>
     <string name="pref_sirf_enable_static_navigation_key">enableStaticNavigation</string>
 
-    <string name="defaultConnectionRetries">5</string>
+    <string name="defaultConnectionRetries">100</string>
     <string name="defaultTrackFileDirectory">/sdcard/nmea</string>
     <string name="defaultTrackFilePrefix">btnmeatrack</string>
     <string name="defaultMockGpsName">golden_retriever_gps</string>
