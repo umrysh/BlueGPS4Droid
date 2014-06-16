@@ -75,8 +75,8 @@
   <string name="pref_enable_static_navigation_title">Статическая навигация</string>
   <string name="pref_enable_static_navigation_summary_off">Статическая навигация запрещена</string>
   <string name="pref_enable_static_navigation_summary_on">Static Navigation разрешена</string>
-  <string name="msg_gps_provider_started">Bluetooth GPS… запущен</string>
-  <string name="msg_gps_provider_stopped">Bluetooth GPS… остановлен</string>
+  <string name="msg_gps_provider_started">Bluetooth GPS… запущен: %s</string>
+  <string name="msg_gps_provider_stopped">Bluetooth GPS… остановлен: %s</string>
   <string name="msg_gps_provider_already_started">Bluetooth GPS… уже запущен</string>
   <string name="msg_gps_provider_stopped_by_problem">"Невозможно запустить: %s"</string>
   <string name="msg_two_many_connection_problems">Сликом много ошибок соединения</string>

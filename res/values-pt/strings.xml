@@ -81,8 +81,8 @@
     <string name="pref_enable_static_navigation_summary_off">Navegação estática desativado</string>
     <string name="pref_enable_static_navigation_summary_on">Navegação estática ativo</string>
 
-    <string name="msg_gps_provider_started">Bluetooth GPS… iniciado</string>
-    <string name="msg_gps_provider_stopped">Bluetooth GPS… parado</string>
+    <string name="msg_gps_provider_started">Bluetooth GPS… iniciado: %s</string>
+    <string name="msg_gps_provider_stopped">Bluetooth GPS… parado: %s</string>
     <string name="msg_gps_provider_already_started">Bluetooth GPS… está ativo</string>
     <string name="msg_gps_provider_stopped_by_problem">"Não é possível iniciar: %s"</string>
     <string name="msg_two_many_connection_problems">Problemas conexão</string>

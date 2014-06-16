@@ -78,8 +78,8 @@
     <string name="pref_enable_static_navigation_summary_off">Navigation Statique désactivée</string>
     <string name="pref_enable_static_navigation_summary_on">Navigation Statique activée</string>
 
-    <string name="msg_gps_provider_started">GPS Bluetooth… démarré</string>
-    <string name="msg_gps_provider_stopped">GPS Bluetooth… arrêté</string>
+    <string name="msg_gps_provider_started">GPS Bluetooth… démarré: %s</string>
+    <string name="msg_gps_provider_stopped">GPS Bluetooth… arrêté: %s</string>
     <string name="msg_gps_provider_already_started">GPS Bluetooth… déjà démarré</string>
     <string name="msg_gps_provider_stopped_by_problem">"Oups ! %s"</string>
     <string name="msg_two_many_connection_problems">Problèmes de connexion</string>

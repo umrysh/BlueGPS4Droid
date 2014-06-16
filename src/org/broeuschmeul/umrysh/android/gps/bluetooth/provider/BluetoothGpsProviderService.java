@@ -131,9 +131,9 @@ public class BluetoothGpsProviderService extends Service implements NmeaListener
 						startForeground(R.string.foreground_gps_provider_started_notification, notification);
 						if (sharedPreferences.getBoolean(PREF_SIRF_GPS, false)){
 							enableSirfConfig(sharedPreferences);
-						}					
-						toast.setText(this.getString(R.string.msg_gps_provider_started));
-						toast.show();	
+						}
+						String deviceName = sharedPreferences.getString("DeviceName:"+BluetoothAdapter.getDefaultAdapter().getRemoteDevice(deviceAddress).getName(), BluetoothAdapter.getDefaultAdapter().getRemoteDevice(deviceAddress).getName());
+						Toast.makeText(this, this.getString(R.string.msg_gps_provider_started, deviceName ), Toast.LENGTH_LONG).show();
 					} else {
 						if (gpsManager.getDisableReason() != 0){
 							if(gpsManager.getDisableReason()==2131034225){
@@ -408,20 +408,21 @@ public class BluetoothGpsProviderService extends Service implements NmeaListener
 	@Override
 	public void onDestroy() {
 		BlueetoothGpsManager manager = gpsManager;
+		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		gpsManager  = null;
 		if (manager != null){
 			if (manager.getDisableReason() != 0){
 				Toast.makeText(this, getString(R.string.msg_gps_provider_stopped_by_problem, getString(manager.getDisableReason())), Toast.LENGTH_LONG).show();
 			} else {
-				toast.setText(R.string.msg_gps_provider_stopped);
-				toast.show();
+				String deviceAddress = sharedPreferences.getString(PREF_BLUETOOTH_DEVICE, null);
+				String deviceName = sharedPreferences.getString("DeviceName:"+BluetoothAdapter.getDefaultAdapter().getRemoteDevice(deviceAddress).getName(), BluetoothAdapter.getDefaultAdapter().getRemoteDevice(deviceAddress).getName());
+				Toast.makeText(this, this.getString(R.string.msg_gps_provider_stopped, deviceName ), Toast.LENGTH_LONG).show();
 			}
 			manager.removeNmeaListener(this);
 			manager.disableMockLocationProvider();
 			manager.disable();
 		}
 		endTrack();
-		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 		SharedPreferences.Editor edit = sharedPreferences.edit();
 		if (sharedPreferences.getBoolean(PREF_TRACK_RECORDING, true)){
 			edit.putBoolean(PREF_TRACK_RECORDING,false);
