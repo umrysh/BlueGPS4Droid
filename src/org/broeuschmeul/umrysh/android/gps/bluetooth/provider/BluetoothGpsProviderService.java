@@ -47,6 +47,7 @@ import android.preference.PreferenceManager;
 import android.util.Config;
 import android.util.Log;
 import android.widget.Toast;
+import android.content.ComponentName;
 
 /**
  * A Service used to replace Android internal GPS with a bluetooth GPS and/or write GPS NMEA data in a File.
@@ -136,13 +137,18 @@ public class BluetoothGpsProviderService extends Service implements NmeaListener
 					} else {
 						if (gpsManager.getDisableReason() != 0){
 							if(gpsManager.getDisableReason()==2131034225){
-								Intent myIntent = new Intent(android.provider.Settings.ACTION_SETTINGS);
+								Intent myIntent = new Intent(android.provider.Settings.ACTION_BLUETOOTH_SETTINGS);
 								myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 								startActivity(myIntent);
 							}else if(gpsManager.getDisableReason()==2131034226){
 								Intent myIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS);
-								myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-								startActivity(myIntent);
+							    ComponentName componentName = myIntent.resolveActivity(getPackageManager());
+							    if (componentName == null) {
+							        myIntent = new Intent(android.provider.Settings.ACTION_APPLICATION_SETTINGS);
+									Toast.makeText(this, getString(R.string.open_development_options), Toast.LENGTH_LONG).show();
+							    } 
+						    	myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						        startActivity(myIntent);
 							}
 						}
 						stopSelf();
