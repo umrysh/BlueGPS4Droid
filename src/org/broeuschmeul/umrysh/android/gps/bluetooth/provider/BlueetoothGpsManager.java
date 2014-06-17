@@ -234,6 +234,7 @@ public class BlueetoothGpsManager {
 	private int maxConnectionRetries;
 	private int nbRetriesRemaining;
 	private boolean connected = false;
+	private boolean alternativeConnection = false;
 
 	/**
 	 * @param callingService
@@ -347,11 +348,21 @@ public class BlueetoothGpsManager {
 										} catch (IOException e) {
 											Log.e(LOG_TAG, "Error during disconnection", e);
 										}
-										try {
-											gpsSocket = gpsDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
-										} catch (IOException e) {
-											Log.e(LOG_TAG, "Error during connection", e);
-						    				gpsSocket = null;
+										if(!alternativeConnection){
+											try {
+												gpsSocket = gpsDevice.createRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+											} catch (IOException e) {
+												Log.e(LOG_TAG, "Error during connection", e);
+							    				gpsSocket = null;
+											}
+										}else{
+											Log.d(LOG_TAG, "trying alternative connection");
+											try {
+												gpsSocket = gpsDevice.createInsecureRfcommSocketToServiceRecord(UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"));
+											} catch (IOException e) {
+												Log.e(LOG_TAG, "Error during connection", e);
+							    				gpsSocket = null;
+											}
 										}
 										if (gpsSocket == null){
 											Log.e(LOG_TAG, "Error while establishing connection: no socket");
@@ -381,7 +392,13 @@ public class BlueetoothGpsManager {
 									}
 								} catch (IOException connectException) {
 									// Unable to connect
-									Log.e(LOG_TAG, "error while connecting to socket", connectException);									
+									Log.e(LOG_TAG, "error while connecting to socket", connectException);
+									if(alternativeConnection)
+									{
+										alternativeConnection = false;
+									}else{
+										alternativeConnection = true;
+									}
 									// disable(R.string.msg_bluetooth_gps_unavaible);
 								} finally {
 									nbRetriesRemaining--;
@@ -398,7 +415,7 @@ public class BlueetoothGpsManager {
 			        	Log.v(LOG_TAG, "starting connection and reading thread");
 						connectionAndReadingPool = Executors.newSingleThreadScheduledExecutor();
 			        	Log.v(LOG_TAG, "starting connection to socket task");
-						connectionAndReadingPool.scheduleWithFixedDelay(connectThread, 5000, 60000, TimeUnit.MILLISECONDS);
+						connectionAndReadingPool.scheduleWithFixedDelay(connectThread, 5000, 30000, TimeUnit.MILLISECONDS);
 					}
 				}
 			}
