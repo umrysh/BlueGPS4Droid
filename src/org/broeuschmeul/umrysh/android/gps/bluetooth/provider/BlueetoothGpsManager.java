@@ -218,7 +218,7 @@ public class BlueetoothGpsManager {
 	private Service callingService;
 	private BluetoothSocket gpsSocket;
 	private String gpsDeviceAddress;
-	private NmeaParser parser = new NmeaParser(10f);
+	private NmeaParser parser = new NmeaParser();
 	private boolean enabled = false;
 	private ExecutorService notificationPool;
 	private ScheduledExecutorService connectionAndReadingPool;
