@@ -26,6 +26,7 @@
 		android:title="@string/pref_bluetooth_device_title" 
 		android:key="@string/pref_bluetooth_device_key" 	
 		android:summary="@string/pref_bluetooth_device_summary" />
+	<!--
 	<CheckBoxPreference 
 		android:dependency="@string/pref_bluetooth_device_key"
 		android:key="@string/pref_start_gps_key"
@@ -34,8 +35,8 @@
 		android:title="@string/pref_start_gps_title"
 		android:summaryOn="@string/pref_start_gps_summary_on"
 		android:summaryOff="@string/pref_start_gps_summary_off" />
+	-->
 	<PreferenceScreen
-		android:dependency="@string/pref_start_gps_key"
 		android:shouldDisableView="true"
 		android:key="@string/pref_gps_location_provider_key"
 		android:title="@string/pref_gps_location_provider_title" >

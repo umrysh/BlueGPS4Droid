@@ -69,6 +69,14 @@ public class BluetoothGpsActivity extends PreferenceActivity implements OnPrefer
         sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPref.registerOnSharedPreferenceChangeListener(this);
         bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        Preference pref_gps_location_provider_key_button = (Preference)findPreference(getString(R.string.pref_gps_location_provider_key));
+        if(!sharedPref.getBoolean(getString(R.string.pref_start_gps_key), false))
+        {
+            pref_gps_location_provider_key_button.setEnabled(false);
+        }else{
+            pref_gps_location_provider_key_button.setEnabled(true);
+        }
    }
 
     /* (non-Javadoc)
@@ -78,6 +86,14 @@ public class BluetoothGpsActivity extends PreferenceActivity implements OnPrefer
 	protected void onResume() {
 		this.updateDevicePreferenceList();
 		super.onResume();
+
+        Preference pref_gps_location_provider_key_button = (Preference)findPreference(getString(R.string.pref_gps_location_provider_key));
+        if(!sharedPref.getBoolean(getString(R.string.pref_start_gps_key), false))
+        {
+            pref_gps_location_provider_key_button.setEnabled(false);
+        }else{
+            pref_gps_location_provider_key_button.setEnabled(true);
+        }
 	}
 
 	private void updateDevicePreferenceSummary(){
