@@ -77,4 +77,7 @@
     <string name="sirf_bin_dgps_ext_on">85020000000000</string>
     <string name="sirf_bin_dgps_sbas_on">85010000000000</string>
     <string name="sirf_software_version">8400</string>   
+
+    <string name="defaultDeviceRes">300</string>
+    <string name="pref_device_res_key">deviceRes</string>
 </resources>

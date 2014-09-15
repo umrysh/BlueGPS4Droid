@@ -218,7 +218,7 @@ public class BlueetoothGpsManager {
 	private Service callingService;
 	private BluetoothSocket gpsSocket;
 	private String gpsDeviceAddress;
-	private NmeaParser parser = new NmeaParser();
+	private NmeaParser parser;
 	private boolean enabled = false;
 	private ExecutorService notificationPool;
 	private ScheduledExecutorService connectionAndReadingPool;
@@ -250,6 +250,8 @@ public class BlueetoothGpsManager {
 		locationManager = (LocationManager)callingService.getSystemService(Context.LOCATION_SERVICE);
 		sharedPreferences = PreferenceManager.getDefaultSharedPreferences(callingService);
 		notificationManager = (NotificationManager)callingService.getSystemService(Context.NOTIFICATION_SERVICE);
+
+		this.parser = new NmeaParser(Float.parseFloat(sharedPreferences.getString(appContext.getString(R.string.pref_device_res_key),appContext.getString(R.string.defaultDeviceRes)))/100);
 		parser.setLocationManager(locationManager);	
 		
 		connectionProblemNotification = new Notification();
@@ -369,7 +371,9 @@ public class BlueetoothGpsManager {
 								        	disable(R.string.msg_bluetooth_gps_unavaible);
 										} else {
 											// Cancel discovery because it will slow down the connection
-											bluetoothAdapter.cancelDiscovery();
+											if (bluetoothAdapter.isDiscovering()) {
+											    bluetoothAdapter.cancelDiscovery();
+											}
 											// we increment the number of connection tries
 											// Connect the device through the socket. This will block
 											// until it succeeds or throws an exception

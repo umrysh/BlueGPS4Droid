@@ -106,4 +106,7 @@
     <string name="pref_gps_rename_devices_summary">Personnaliser les noms des périphériques GPS</string>
     <string name="select_a_gps_device">Sélectionnez un appareil GPS à utiliser</string>
     <string name="open_development_options">Ouvrez options de développement pour permettre les positions fictives</string>
+
+    <string name="pref_device_res_title">Résolution de l\'appareil GPS (cm)</string>
+    <string name="pref_device_res_summary">La meilleure exactitude votre appareil peut obtenir dans CEP</string>
 </resources>

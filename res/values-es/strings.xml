@@ -109,4 +109,7 @@
     <string name="pref_gps_rename_devices_summary">Personalice los nombres de los dispositivos GPS</string>
     <string name="select_a_gps_device">Seleccione un dispositivo GPS para usar</string>
     <string name="open_development_options">Abra Opciones de Desarrollo para permitir ubicaciones falsas</string>
+
+    <string name="pref_device_res_title">Resolución del dispositivo GPS (cm)</string>
+    <string name="pref_device_res_summary">La mejor precisión de su dispositivo puede obtener en CEP</string>
 </resources>

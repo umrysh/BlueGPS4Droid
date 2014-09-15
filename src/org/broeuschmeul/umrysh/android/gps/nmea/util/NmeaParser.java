@@ -57,7 +57,6 @@ public class NmeaParser {
 	private boolean hasRMC = false;
 	private LocationManager lm;
 	private float precision = 3f;
-	private float precision2 = 2.5f;
 	private boolean mockGpsAutoEnabled = false;
 	private boolean mockGpsEnabled = false;
 	private String mockLocationProvider = null;
@@ -67,11 +66,11 @@ public class NmeaParser {
 	private Location fix = null;
 
 	public NmeaParser(){
-		this(3f,2.5f);
+		this(3f);
 	}
-	public NmeaParser(float precision,float precision2){
+
+	public NmeaParser(float precision){
 		this.precision = precision;
-		this.precision2 = precision2;
 	}
 
 	public void setLocationManager(LocationManager lm){
@@ -304,12 +303,7 @@ public class NmeaParser {
 						fix.setLongitude(parseNmeaLongitude(lon,lonDir));
 					}
 					if (hdop != null && !hdop.equals("")){
-						if(quality.equals("2"))
-						{
-							fix.setAccuracy(Float.parseFloat(hdop)*precision2);
-						}else{
-							fix.setAccuracy(Float.parseFloat(hdop)*precision);
-						}
+						fix.setAccuracy(Float.parseFloat(hdop)*precision);
 					}
 					if (alt != null && !alt.equals("")){
 						fix.setAltitude(Double.parseDouble(alt));

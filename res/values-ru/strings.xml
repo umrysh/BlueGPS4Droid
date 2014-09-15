@@ -103,4 +103,7 @@
   <string name="pref_gps_rename_devices_summary">Настроить имена GPS устройств</string>
   <string name="select_a_gps_device">Выберите GPS устройство для использования</string>
   <string name="open_development_options">Откройте параметры развития, с тем чтобы тестовых данных о местонахождении</string>
+
+  <string name="pref_device_res_title">Постановление GPS устройств (cm)</string>
+  <string name="pref_device_res_summary">Наилучшая точность устройство может получить в КЭП</string>
 </resources>

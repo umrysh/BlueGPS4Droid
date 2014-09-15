@@ -36,6 +36,13 @@
 		android:summaryOn="@string/pref_start_gps_summary_on"
 		android:summaryOff="@string/pref_start_gps_summary_off" />
 	-->
+	<EditTextPreference
+			android:key="@string/pref_device_res_key"
+			android:title="@string/pref_device_res_title"
+			android:defaultValue="@string/defaultDeviceRes"
+			android:selectAllOnFocus="true"
+			android:inputType="number"
+			android:summary="@string/pref_device_res_summary" />
 	<PreferenceScreen
 		android:shouldDisableView="true"
 		android:key="@string/pref_gps_location_provider_key"
